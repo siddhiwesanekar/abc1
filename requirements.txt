@@ -1,11 +1,5 @@
 absl-py
 astunparse
-cachetools
-certifi
-cffi
-charset-normalizer
-clang
-click
 cloudpickle
 colorama
 cryptography
@@ -13,14 +7,6 @@ decorator
 dm-tree
 Flask
 flatbuffers
-gast
-google-auth
-google-auth-oauthlib
-google-pasta
-grpcio
-h5py
-idna
-itsdangerous
 Jinja2
 joblib
 keras
@@ -46,8 +32,6 @@ rsa
 six
 tb-nightly==2.7.0a20210919
 tensorboard
-tensorboard-data-server
-tensorboard-plugin-wit
 tensorflow
 tensorflow-estimator
 tensorflow-io-gcs-filesystem
@@ -62,4 +46,4 @@ Werkzeug
 wrapt
 tensorflow-gpu
 gunicorn
-
+https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local
