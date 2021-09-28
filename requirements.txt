@@ -61,6 +61,5 @@ urllib3
 Werkzeug
 wrapt
 tensorflow-gpu
-keras-gpu
 gunicorn
 cudatoolkit
