@@ -32,7 +32,7 @@ rsa
 six
 tb-nightly==2.7.0a20210919
 tensorboard
-tensorflow==2.0
+tensorflow==1.15
 termcolor
 tflearn
 tqdm
