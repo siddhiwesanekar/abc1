@@ -62,4 +62,4 @@ Werkzeug
 wrapt
 tensorflow-gpu
 gunicorn
-cudatoolkit
+
