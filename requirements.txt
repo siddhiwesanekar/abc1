@@ -57,10 +57,10 @@ tf-estimator-nightly==2.7.0.dev2021092008
 tf-nightly==2.7.0.dev20210919
 tflearn
 tqdm
-typing-extension
 urllib3
 Werkzeug
 wrapt
 tensorflow-gpu
 keras-gpu
 gunicorn
+cudatoolkit
