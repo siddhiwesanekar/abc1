@@ -10,7 +10,7 @@ idna==3.2
 importlib-metadata==4.8.1
 Jinja2==3.0.1
 joblib==1.0.1
-keras==2.6.0
+keras
 keras-nightly==2.7.0.dev2021090307
 Keras-Preprocessing==1.1.2
 nltk==3.6.2
@@ -25,8 +25,16 @@ requests-oauthlib
 rsa
 six
 SQLAlchemy
+tensorflow
+tensorflow-estimator
+tensorflow-probability
+tensorflow-io-gcs-filesystem
 termcolor
 textblob
+tensorflow-gpu
+keras-gpu
+cudatoolkit
+cudnn
 tflearn
 tqdm
 typing-extensions
