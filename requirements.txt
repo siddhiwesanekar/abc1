@@ -31,8 +31,8 @@ tensorflow-probability
 tensorflow-io-gcs-filesystem
 termcolor
 textblob
+tensorflow-gpu keras-gpu
 tensorflow-gpu
-keras-gpu
 cudatoolkit
 cudnn
 tflearn
