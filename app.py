@@ -65,7 +65,7 @@ def get_bot_response():
 
 
 
-    return str(response.get_bot_response(userText))
+    return str(response(userText))
 
 if __name__ == "__main__":
     app.run()
