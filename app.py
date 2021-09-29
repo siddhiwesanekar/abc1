@@ -12,7 +12,7 @@ app.static_folder = './static'
 app.temp_dict = {}
 
 
-@app.route("/test")
+@app.route("/")
 def home():
     return render_template("index.html")
 
