@@ -5,7 +5,7 @@ import threading
 from flask import Flask, render_template, request
 from test import response
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='./templates')
 
 
 app.static_folder = './static'
