@@ -17,7 +17,7 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/")
+@app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
     msg5 = response(userText)
