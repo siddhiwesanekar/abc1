@@ -19,7 +19,7 @@ def home():
 
 
 @app.route("/get1", methods=["GET"])
-def get1():
+def get_bot_response():
     userText = request.args.get1('msg')
     msg5 = response(userText)
     if userText.isnumeric():
