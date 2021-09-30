@@ -19,6 +19,8 @@ def home():
 
 
 @app.route("/get", methods=["GET"])
+def get():
+    return send_file("index.html")
 def get_bot_response():
     userText = request.args.get('msg')
     msg5 = response(userText)
@@ -67,6 +69,6 @@ def get_bot_response():
 
 
     return str(response(userText))
-return send_file("index.html")
+
 if __name__ == "__main__":
     app.run()
