@@ -18,8 +18,8 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/get/", methods=["GET"])
-def get_bot_response():
+@app.route("/get", methods=["GET"])
+def get():
     userText = request.args.get('msg')
     msg5 = response(userText)
     if userText.isnumeric():
