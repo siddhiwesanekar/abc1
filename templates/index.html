@@ -65,7 +65,6 @@
 
       appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
       msgerInput.value = "";
-      console.log(msgText);
       botResponse(msgText);
     });
 
@@ -91,11 +90,8 @@
     }
 
     function botResponse(rawText) {
-      console.log("In the botresponse function");
-      console.log(rawText);
 
       // Bot Response
-      
       $.ajax({
                 data: {
                     msg: rawText,
