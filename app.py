@@ -3,6 +3,7 @@ import socket
 import threading
 
 from flask import Flask, render_template, request
+from flask import send_file
 from test import response
 
 app = Flask(__name__, template_folder='./templates')
@@ -66,6 +67,6 @@ def get_bot_response():
 
 
     return str(response(userText))
-
+return send_file("index.html")
 if __name__ == "__main__":
     app.run()
