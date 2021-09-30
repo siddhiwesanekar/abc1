@@ -18,9 +18,9 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/get", methods=["GET"])
-def get():
-    userText = request.args.get('msg')
+@app.route("/get1", methods=["GET"])
+def get1():
+    userText = request.args.get1('msg')
     msg5 = response(userText)
     if userText.isnumeric():
         if int(userText) in app.temp_dict.keys():
