@@ -95,7 +95,14 @@
       console.log(rawText);
 
       // Bot Response
-      $.get("/get", { msg: rawText }).done(function (data) {
+      
+      $.ajax({
+                data: {
+                    msg: rawText,
+                },
+                type: "POST",
+                url: "/get",
+            }).done(function (data) {
         console.log(rawText);
 
         console.log(data);
