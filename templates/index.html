@@ -93,13 +93,7 @@
     function botResponse(rawText) {
 
       // Bot Response
-      $.ajax({
-                data: {
-                    msg: rawText,
-                },
-                type: "GET",
-                url: "/get1",
-            }).done(function (data) {
+      $.get("/get1", { msg: rawText }).done(function (data) {
         console.log(rawText);
 
         console.log(data);
