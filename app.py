@@ -1,27 +1,29 @@
-
+#from chatbot import chatbot
 import socket
+import time
 import threading
+import tkinter
+import requests
+import ast
 
 from flask import Flask, render_template, request
-from flask import send_file
 from test import response
+app = Flask(__name__, template_folder = 'C:/Users/siddh/OneDrive/Desktop/handoff/handoff/templates')
 
-app = Flask(__name__, template_folder='./templates')
 
-
-app.static_folder = './static'
+app.static_folder = 'C:/Users/siddh/OneDrive/Desktop/handoff/handoff/static'
 app.temp_dict = {}
-
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-
-@app.route("/get1", methods=["GET"])
+@app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
     msg5 = response(userText)
+    #print(type(msg5))
+    temp1 = {}
     if userText.isnumeric():
         if int(userText) in app.temp_dict.keys():
             userText = app.temp_dict[int(userText)]
@@ -34,11 +36,11 @@ def get_bot_response():
     if '/' in msg5:
         if 'open' in userText:
             import webbrowser
-
             webbrowser.open(msg5)
 
             return "File opened successfully!"
 
+            # self.text_widget.insert(END,"\n")
 
         if 'delete' in userText:
             import os
@@ -51,23 +53,71 @@ def get_bot_response():
                 msg5 = "File Dose Not Exist!"
                 return msg5
     if (type(msg5) is list) == True:
+            #print("yes")
+
+            listToStr = ''.join([str(elem) for elem in msg5])
+            #print(type(listToStr))
+            #print(listToStr)
+            #return listToStr
+            res = [''.join(ele) for ele in msg5]
 
 
-        res = [''.join(ele) for ele in msg5]
 
-        temp_num = 0
-        for i in res[1:]:
-            temp_num = temp_num + 1
-            app.temp_dict[temp_num] = []
+            temp_num = 0
+            for i in res[1:]:
+                temp_num = temp_num + 1
+                app.temp_dict[temp_num] = []
 
-            app.temp_dict[temp_num].append(str(i))
-
-        return app.temp_dict
+                app.temp_dict[temp_num].append(str(i))
 
 
+            return  app.temp_dict
+
+
+    if 'human' in userText:
+        func()
+        print("In human")
+        sendmessage(msg5)
 
     return str(response(userText))
-    return render_template('index.html')
+conversation=[] # Our all conversation
+
+# threading the recv function
+def func():
+    t = threading.Thread(target=get_bot_response)
+    t.start()
+    print("t started")
+
+
+attempt = 0
+s = socket.socket()
+
+
+def sendmessage(msg):
+    '''To send message from admin to user.
+    and printing it on label in tkinter window'''
+    print("In sendmessage")
+    global attempt  # send
+    if attempt == 0:
+        hostname = 'localhost'
+        port = 3000
+        s.connect((hostname, port))
+        #msg = messagebox.get()
+        print("this is msg")
+        print(msg)
+        conversation.append("You: " + msg)
+        s.send(msg.encode())
+        attempt = attempt + 1
+    else:
+        conversation.append("You: " + msg)
+        s.send(msg.encode())
+
+
+# threading the sendmessage function
+def threadsendmsg():
+    th = threading.Thread(target=sendmessage)
+    th.start()
+
 
 if __name__ == "__main__":
     app.run()
