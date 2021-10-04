@@ -1,24 +1,23 @@
-
+#from chatbot import chatbot
 import socket
 import time
 import threading
-import tkinter
 import requests
 import ast
 
 from flask import Flask, render_template, request
 from test import response
-app = Flask(__name__, template_folder = './templates')
+app = Flask(__name__, template_folder = 'C:/Users/mruna/PycharmProjects/handoff/handoff/templates')
 
 
-app.static_folder = './static'
+app.static_folder = 'C:/Users/mruna/PycharmProjects/handoff/handoff/static'
 app.temp_dict = {}
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-@app.route("/get1")
+@app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
     msg5 = response(userText)
@@ -53,9 +52,12 @@ def get_bot_response():
                 msg5 = "File Dose Not Exist!"
                 return msg5
     if (type(msg5) is list) == True:
-           
+            #print("yes")
 
             listToStr = ''.join([str(elem) for elem in msg5])
+            #print(type(listToStr))
+            #print(listToStr)
+            #return listToStr
             res = [''.join(ele) for ele in msg5]
 
 
@@ -71,6 +73,22 @@ def get_bot_response():
             return  app.temp_dict
 
 
-   
+    
+
+    return str(response(userText))
+conversation=[] # Our all conversation
+
+# threading the recv function
+
+
+
+attempt = 0
+s = socket.socket()
+
+    
+
+
+
+
 if __name__ == "__main__":
     app.run()
