@@ -1,6 +1,5 @@
 import tensorflow as tf
 import nltk
-#nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 import numpy as np
@@ -18,23 +17,21 @@ parent_classes = []
 classes = []
 documents = []
 ignore = ['?','!','*']
-# loop through each sentence in the intent's patterns
 for intent in intents['intents']:
     for pattern in intent['patterns']:
-        # tokenize each and every word in the sentence
+        
         w = nltk.word_tokenize(pattern)
-        # add word to the words list
+        
         words.extend(w)
-        # add word(s) to documents
+        
         documents.append((w, intent['tag']))
-        # add tags to our classes list
+        
         if intent['tag'] not in classes:
             classes.append(intent['tag'])
         if intent['parent_tag'] not in parent_classes:
             parent_classes.append((intent['parent_tag']))
 
 
-# Perform stemming and lower each word as well as remove duplicates
 words = [stemmer.stem(w.lower()) for w in words if w not in ignore]
 words = sorted(list(set(words)))
 
